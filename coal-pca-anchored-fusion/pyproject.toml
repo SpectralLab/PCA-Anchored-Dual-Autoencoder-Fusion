@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coal-pca-anchored-fusion"
+version = "0.1.0"
+description = "PCA-anchored dual-autoencoder Raman-NIR coal volatile matter experiments"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.23,<3",
+    "pandas>=1.5,<3",
+    "scipy>=1.9,<2",
+    "scikit-learn>=1.2,<2",
+    "torch>=2.0,<3",
+    "threadpoolctl>=3,<4",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7,<10"]
+
+[project.scripts]
+coal-fusion = "coal_fusion.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
